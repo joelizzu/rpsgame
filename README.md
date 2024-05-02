@@ -1,2 +1,4 @@
 # rpsgame
-This is a rock, paper, scissors game against the computer made in javascript.
+Rock, paper, scissors game
+You play against the computer
+#Javascript.
