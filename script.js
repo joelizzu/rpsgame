@@ -74,6 +74,15 @@ function playRound(humanChoice, computerChoice) {
     console.log("Same answer!");
   }
 }
+
+// Scoring
+function winnerSelection() {
+  if (humanScore > computerScore) {
+    console.log("You won the game!!!");
+  } else {
+    console.log("The computer won the game!!!");
+  }
+}
 // Game play
 
 function playGame() {
@@ -81,4 +90,3 @@ function playGame() {
   humanScore;
   computerScore;
 }
-
