@@ -1,77 +1,58 @@
 // Variables and Arrays
-let options = ["Rock", "Paper", "Scissors"];
+
 let humanScore = 0;
 let computerScore = 0;
 console.log("Welcome to the game");
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 
 // Let the computer select randomly from 'options'
 
 function getComputerChoice() {
+  let options = ["Rock", "Paper", "Scissors"];
   return options[Math.floor(Math.random() * options.length)];
 }
 
 // Let the player input choice
 
 function getHumanChoice() {
-  let choice = prompt("Rock, paper or Scissors? (r, p, or s)");
-  if (choice === "r" || choice === "p" || choice === "s") {
-    return choice;
+  let validChoice = prompt("Rock, paper or Scissors? (r, p, or s)");
+  if (validChoice === "r" || validChoice === "p" || validChoice === "s") {
+    return validChoice;
   } else {
-    console.log("Invalid input!! Reload with f5");
+    console.log("Invalid choice!! Reload with f5");
   }
 }
 
-// Game flow conditionals
+// Game flow for a single round
 
 function playRound(humanChoice, computerChoice) {
-  if (humanSelection == "r" && computerSelection == "Paper") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Rock");
+  if (
+    (humanChoice == "r" && computerChoice == "Paper") ||
+    (humanChoice == "p" && computerChoice == "Scissors") ||
+    (humanChoice == "s" && computerChoice == "Rock")
+  ) {
+    console.log("Computer: ", computerChoice);
+    console.log("You: ", humanChoice);
     console.log("The computer wins!!");
     computerScore++;
-  } else if (humanSelection == "p" && computerSelection == "Rock") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Paper");
-    console.log("You win!!");
-    humanChoice++;
-  } else if (humanSelection == "r" && computerSelection == "Rock") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Rock");
-    console.log("Same answer!");
-  }
-
-  if (humanSelection == "p" && computerSelection == "Scissors") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Paper");
-    console.log("The computer wins!!");
-    computerScore++;
-  } else if (humanSelection == "s" && computerSelection == "Paper") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Scissors");
+  } else if (
+    (humanChoice == "p" && computerChoice == "Rock") ||
+    (humanChoice == "s" && computerChoice == "Paper") ||
+    (humanChoice == "r" && computerChoice == "Scissors")
+  ) {
+    console.log("Computer: ", computerChoice);
+    console.log("You: ", humanChoice);
     console.log("You win!!");
     humanScore++;
-  } else if (humanSelection == "p" && computerSelection == "Paper") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Paper");
-    console.log("Same answer!");
-  }
-
-  if (humanSelection == "s" && computerSelection == "Rock") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Scissors");
-    console.log("The computer wins!!");
-    computerScore++;
-  } else if (humanSelection == "r" && computerSelection == "Scissors") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Rock");
-    console.log("You win!!");
-    humanScore++;
-  } else if (humanSelection == "s" && computerSelection == "Scissors") {
-    console.log("Computer: ", computerSelection);
-    console.log("You: Scissors");
-    console.log("Same answer!");
+  } else if (
+    (humanChoice == "r" && computerChoice == "Rock") ||
+    (humanChoice == "p" && computerChoice == "Paper") ||
+    (humanChoice == "s" && computerChoice == "Scissors")
+  ) {
+    console.log("Computer: ", computerChoice);
+    console.log("You: ", humanChoice);
+    console.log("Draw!");
   }
 }
 
@@ -83,10 +64,11 @@ function winnerSelection() {
     console.log("The computer won the game!!!");
   }
 }
-// Game play
+
+// Play five times and display winner
 
 function playGame() {
-  playRound();
-  humanScore;
-  computerScore;
+  playRound(humanSelection, computerSelection);
 }
+playGame();
+winnerSelection();
