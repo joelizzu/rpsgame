@@ -17,7 +17,7 @@ function getComputerChoice() {
 // Let the player input choice
 
 function getHumanChoice() {
-  let validChoice = prompt("Rock, paper or Scissors? Input r, p or s");
+  let validChoice = prompt("Rock, paper or Scissors? [f12 for progress]", "input [r] [p] or [s]");
   if (validChoice === "r" || validChoice === "p" || validChoice === "s") {
     return validChoice;
   } else if (
