@@ -1,7 +1,8 @@
 body {
-    background-color: rgb(12, 126, 17);
+    background-color: rgb(14, 166, 177);
 }
 h1, h2 {
     text-align: center;
-    color: white;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
